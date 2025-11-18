@@ -1,0 +1,46 @@
+What I Built / What the Scripts Do:
+A shell script to create an S3 bucket and configure it.
+A script to upload files to S3 from a local directory.
+Automated EC2 instance creation, including selecting AMI, instance type, and key-pair.
+A user-data / configuration script that installs Apache on the EC2 instance and starts the HTTP server.
+IAM user creation script: generates a user, assigns required policies, and retrieves access keys securely.
+A utility script (utils.sh) for logging, error handling, and modularizing repetitive tasks.
+
+
+
+Architecture / Design:
+The solution follows a modular, script-based architecture where each major AWS task is separated into its own Bash script. The scripts communicate with AWS via CLI commands, and logging is performed at each step to ensure that errors can be tracked and debugging is possible. The EC2 instance is set up with a web server, making it immediately usable after provisioning.
+
+How to Run:
+Configure AWS CLI using aws configure with your credentials.
+Give the scripts execute permission: chmod +x scripts/*.sh.
+
+
+What I Learned:
+
+How to automate AWS tasks using shell scripting
+
+Real-world use of AWS CLI for provisioning and management
+
+Structuring Bash scripts in a modular and maintainable way
+
+Handling AWS credentials and IAM securely
+
+Setting up a web server (Apache) on EC2 through user-data scripting
+
+Logging, error-handling, and being methodical in script execution
+
+
+
+Future Improvements / Next Steps:
+
+Add cleanup scripts to delete all created resources (to avoid cost)
+
+Integrate with a CI/CD pipeline (e.g. GitHub Actions) to run these scripts automatically
+
+Add monitoring: CloudWatch alarms / logs for EC2
+
+Use Terraform for Infrastructure-as-Code instead of CLI scripting
+
+Parameterize scripts to take inputs (bucket name, region, instance type, IAM policy)
+
